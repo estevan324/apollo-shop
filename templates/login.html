@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">Bem-vindo de volta</h2>
+                    <p class="text-muted">Acesse sua conta na Apollo Shop</p>
+                </div>
+
+                <form action="{{ url_for('login') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">E-mail</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="senha" class="form-label fw-semibold">Senha</label>
+                        <input type="password" class="form-control form-control-lg" id="senha" name="senha" placeholder="••••••••" required>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark btn-lg fw-bold">Entrar</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p class="mb-0">Ainda não tem uma conta? <a href="{{ url_for('cadastro') }}" class="text-warning fw-bold text-decoration-none">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
