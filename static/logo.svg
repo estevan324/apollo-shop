@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Fundo Escuro Moderno -->
+  <rect width="500" height="500" fill="#121212"/>
+  
+  <g transform="translate(0, -20)">
+      <!-- Estrutura do 'A' (Palheta / Metrônomo) -->
+      <path d="M 250 120 L 150 320 L 180 320 L 250 160 L 320 320 L 350 320 Z" fill="#E5A93C"/>
+      
+      <!-- Cordas da Lira / Guitarra -->
+      <line x1="225" y1="210" x2="225" y2="320" stroke="#E5A93C" stroke-width="6" stroke-linecap="round"/>
+      <line x1="250" y1="180" x2="250" y2="320" stroke="#E5A93C" stroke-width="6" stroke-linecap="round"/>
+      <line x1="275" y1="210" x2="275" y2="320" stroke="#E5A93C" stroke-width="6" stroke-linecap="round"/>
+      
+      <!-- Raios Solares de Apolo -->
+      <circle cx="250" cy="180" r="40" fill="none" stroke="#E5A93C" stroke-width="2" stroke-dasharray="4,8"/>
+  </g>
+
+  <!-- Nome da Loja -->
+  <text x="250" y="380" font-family="'Montserrat', 'Arial Black', sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">APOLLO</text>
+  <text x="250" y="410" font-family="'Courier New', monospace" font-size="14" fill="#888888" text-anchor="middle" letter-spacing="10">SHOP</text>
+</svg>

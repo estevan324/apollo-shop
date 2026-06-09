@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Letra 'A' simplificada para leitura em miniatura -->
+  <path d="M 16 2 L 2 28 L 10 28 L 16 12 L 22 28 L 30 28 Z" fill="#E5A93C"/>
+  
+  <!-- Corda central única -->
+  <rect x="14" y="16" width="4" height="12" fill="#E5A93C"/>
+  
+  <!-- Ponto solar de Apolo centralizado -->
+  <circle cx="16" cy="11" r="2.5" fill="#E5A93C"/>
+</svg>
