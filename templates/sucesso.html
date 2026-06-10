@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row justify-content-center mt-5 mb-5">
+  <div class="col-md-8 col-lg-6 text-center">
+    <div class="card shadow-sm border-0 rounded-4 p-5">
+      <div class="card-body">
+        <div class="mb-4">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+
+        <h2 class="fw-bold mb-3">Pedido Confirmado!</h2>
+        <p class="text-muted fs-5 mb-4">
+          Obrigado por comprar na Apollo Shop,
+          <strong>{{ session['nome_usuario'].split()[0] }}</strong>.
+        </p>
+
+        <div class="bg-light p-3 rounded-3 mb-4 d-inline-block border">
+          <span class="text-muted">Número do seu pedido:</span>
+          <h3 class="fw-bold mt-1 mb-0" style="color: #e5a93c">
+            #{{ pedido_id }}
+          </h3>
+        </div>
+
+        <p class="text-muted small mb-4">
+          Você receberá um e-mail com os detalhes da sua compra e o prazo de
+          entrega.
+        </p>
+
+        <a href="{{ url_for('home') }}" class="btn btn-dark fw-bold px-4 py-2" style="border-radius: 8px">
+          Voltar para a Loja
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

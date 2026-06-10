@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-4 mb-5">
+    <div class="col-md-10 col-lg-8">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Pagamento Seguro</h2>
+            <p class="text-muted">Finalize sua compra na Apollo Shop</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-5 order-md-2">
+                <div class="card border-0 shadow-sm rounded-4" style="background-color: #f8fafc;">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">Resumo da Compra</h5>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Subtotal:</span>
+                            <span class="fw-bold">R$ {{ "%.2f"|format(total_preco) }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3 border-bottom pb-3">
+                            <span class="text-muted">Frete:</span>
+                            <span class="text-success fw-bold">Grátis</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">Total:</span>
+                            <span class="fw-bold fs-4" style="color: #e5a93c;">R$ {{ "%.2f"|format(total_preco)
+                                }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7 order-md-1">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4 p-lg-5">
+                        <h5 class="fw-bold mb-4">Dados do Cartão de Crédito</h5>
+
+                        <form action="{{ url_for('finalizar_pedido') }}" method="POST">
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold text-muted small">Nome Impresso no Cartão</label>
+                                <input type="text" class="form-control form-control-lg fs-6"
+                                    placeholder="Ex: JOAO S SILVA" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold text-muted small">Número do Cartão</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white">💳</span>
+                                    <input type="text" class="form-control form-control-lg fs-6"
+                                        placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold text-muted small">Validade (MM/AA)</label>
+                                    <input type="text" class="form-control form-control-lg fs-6" placeholder="12/30"
+                                        maxlength="5" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold text-muted small">CVV</label>
+                                    <input type="text" class="form-control form-control-lg fs-6" placeholder="123"
+                                        maxlength="3" required>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-dark btn-lg fw-bold" style="border-radius: 8px;">
+                                    Confirmar Pagamento
+                                </button>
+                                <a href="{{ url_for('visualizar_carrinho') }}"
+                                    class="btn btn-link text-muted text-decoration-none mt-2">
+                                    Voltar para o Carrinho
+                                </a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

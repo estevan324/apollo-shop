@@ -1,7 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<header
-  class="text-center rounded-4 mb-5"
-  style="
+<header class="text-center rounded-4 mb-5" style="
     background:
       linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(&quot;https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1350&q=80&quot;);
@@ -9,8 +7,7 @@
     background-position: center;
     color: white;
     padding: 100px 0;
-  "
->
+  ">
   <div class="container">
     <h1 class="display-3 fw-bold mb-3">
       Encontre sua <span style="color: #e5a93c">Voz Musical</span>
@@ -18,9 +15,7 @@
     <p class="lead mb-4">
       Os melhores instrumentos do mundo, curados por especialistas.
     </p>
-    <a href="#catalogo" class="btn btn-warning btn-lg px-5 fw-bold"
-      >Explorar Loja</a
-    >
+    <a href="#catalogo" class="btn btn-warning btn-lg px-5 fw-bold">Explorar Loja</a>
   </div>
 </header>
 
@@ -34,24 +29,15 @@
   <div class="row g-4">
     {% for produto in produtos %}
     <div class="col-md-4 col-lg-3">
-      <div
-        class="card h-100 shadow-sm border-0"
-        style="border-radius: 15px; transition: transform 0.3s ease"
-      >
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; transition: transform 0.3s ease">
         <div class="p-3">
-          {# <img
-            src="{{ url_for('static', filename='img/' ~ produto.foto) }}"
-            class="card-img-top rounded"
-            alt="{{ produto.nome }}"
-            onerror="
+          {# <img src="{{ url_for('static', filename='img/' ~ produto.foto) }}" class="card-img-top rounded"
+            alt="{{ produto.nome }}" onerror="
               this.src = 'https://via.placeholder.com/300x250?text=Sem+Foto'
-            "
-          /> #}
+            " /> #}
         </div>
         <div class="card-body d-flex flex-column">
-          <span class="badge bg-light text-muted mb-2 align-self-start"
-            >{{ produto.categoria }}</span
-          >
+          <span class="badge bg-light text-muted mb-2 align-self-start">{{ produto.categoria }}</span>
 
           <h5 class="card-title fw-bold">{{ produto.nome }}</h5>
 
@@ -59,40 +45,13 @@
             R$ {{ "%.2f"|format(produto.preco) }}
           </p>
 
-          <form
-            action="{{ url_for('adicionar', id_produto=produto.id) }}"
-            method="POST"
-            class="mt-3"
-          >
+          <form action="{{ url_for('adicionar', id_produto=produto.id) }}" method="POST" class="mt-3">
             <div class="d-flex align-items-center gap-2">
-              <input
-                type="number"
-                name="quantidade"
-                class="form-control"
-                value="1"
-                min="1"
-                max="{{ produto.estoque }}"
-                style="width: 80px"
-                required
-                {%
-                if
-                produto.estoque=="0"
-                %}disabled{%
-                endif
-                %}
-              />
+              <input type="number" name="quantidade" class="form-control" value="1" min="1" max="{{ produto.estoque }}"
+                style="width: 80px" required {% if produto.estoque=="0" %}disabled{% endif %} />
 
-              <button
-                type="submit"
-                class="btn btn-dark flex-grow-1 text-nowrap"
-                style="border-radius: 8px; font-weight: 600"
-                {%
-                if
-                produto.estoque=="0"
-                %}disabled{%
-                endif
-                %}
-              >
+              <button type="submit" class="btn btn-dark flex-grow-1 text-nowrap"
+                style="border-radius: 8px; font-weight: 600" {% if produto.estoque=="0" %}disabled{% endif %}>
                 {% if produto.estoque > 0 %} 🛒 Adicionar {% else %} Esgotado {%
                 endif %}
               </button>

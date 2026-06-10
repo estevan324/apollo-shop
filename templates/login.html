@@ -13,21 +13,24 @@
                 <form action="{{ url_for('login') }}" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label fw-semibold">E-mail</label>
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="seu@email.com" required>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email"
+                            placeholder="seu@email.com" required>
                     </div>
-                    
+
                     <div class="mb-4">
                         <label for="senha" class="form-label fw-semibold">Senha</label>
-                        <input type="password" class="form-control form-control-lg" id="senha" name="senha" placeholder="••••••••" required>
+                        <input type="password" class="form-control form-control-lg" id="senha" name="senha"
+                            placeholder="••••••••" required>
                     </div>
-                    
+
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-dark btn-lg fw-bold">Entrar</button>
                     </div>
                 </form>
 
                 <div class="text-center mt-4">
-                    <p class="mb-0">Ainda não tem uma conta? <a href="{{ url_for('cadastro') }}" class="text-warning fw-bold text-decoration-none">Cadastre-se</a></p>
+                    <p class="mb-0">Ainda não tem uma conta? <a href="{{ url_for('cadastro') }}"
+                            class="text-warning fw-bold text-decoration-none">Cadastre-se</a></p>
                 </div>
             </div>
         </div>
