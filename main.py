@@ -209,6 +209,39 @@ def pagamento():
     
     return render_template("pagamento.html", total_preco=total_preco)
 
+@app.route("/pedidos")
+def historico_pedidos():
+    if 'usuario_logado' not in session:
+        flash("Inicie sessão para consultar o seu histórico de pedidos.", "warning")
+        return redirect(url_for('login'))
+
+    cliente_id = session['usuario_logado']
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+    cursor.execute("SELECT * FROM pedidos WHERE cliente_id = %s ORDER BY id DESC", (cliente_id,))
+    pedidos_banco = cursor.fetchall()
+
+    historico = []
+    
+    for p in pedidos_banco:
+        cursor.execute("""
+            SELECT ip.quantidade, ip.preco_unitario, prod.nome, prod.categoria, prod.foto
+            FROM itens_pedido ip
+            JOIN produtos prod ON ip.produto_id = prod.id
+            WHERE ip.pedido_id = %s
+        """, (p['id'],))
+        itens_do_pedido = cursor.fetchall()
+        
+        historico.append({
+            'id': p['id'],
+            'valor_total': p['valor_total'],
+            'data': p.get('data_pedido') or p.get('data'),
+            'itens': itens_do_pedido
+        })
+
+    cursor.close()
+    return render_template("pedidos.html", historico=historico)
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if 'usuario_logado' in session:

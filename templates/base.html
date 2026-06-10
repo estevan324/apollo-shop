@@ -59,35 +59,43 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('home') }}">Loja</a>
+            <a class="nav-link active" href="{{ url_for('home') }}">Início</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link position-relative" href="{{ url_for('visualizar_carrinho') }}">
               🛒 Carrinho
+              {% if session.get('carrinho') %}
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {{ session.get('carrinho', [])|length }}
+                {{ session['carrinho']|length }}
               </span>
+              {% endif %}
             </a>
           </li>
 
           {% if 'usuario_logado' in session %}
-          <li class="nav-item ms-lg-3 dropdown">
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link" href="{{ url_for('historico_pedidos') }}">
+              📦 Meus Pedidos
+            </a>
+          </li>
+          {% endif %}
+
+          {% if 'usuario_logado' in session %}
+          <li class="nav-item ms-lg-4 dropdown">
             <a class="nav-link dropdown-toggle text-gold fw-bold" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown">
               Olá, {{ session['nome_usuario'].split()[0] }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow">
-              <li>
-                <a class="dropdown-item text-danger fw-bold" href="{{ url_for('logout') }}">Sair da Conta</a>
-              </li>
+              <li><a class="dropdown-item text-danger fw-bold" href="{{ url_for('logout') }}">Sair da Conta</a></li>
             </ul>
           </li>
           {% else %}
-          <li class="nav-item ms-lg-3">
+          <li class="nav-item ms-lg-4">
             <a class="nav-link" href="{{ url_for('login') }}">Entrar</a>
           </li>
-          <li class="nav-item ms-1">
+          <li class="nav-item ms-2">
             <a class="btn btn-warning btn-sm fw-bold" href="{{ url_for('cadastro') }}">Cadastrar</a>
           </li>
           {% endif %}
