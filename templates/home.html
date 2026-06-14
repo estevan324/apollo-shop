@@ -39,6 +39,10 @@
 
           <h5 class="card-title fw-bold">{{ produto.nome }}</h5>
 
+          <p class="text-muted mb-2">
+            Estoque: <strong>{{ produto.estoque }}</strong> unidades
+          </p>
+
           <p class="card-text fw-bold fs-4 mt-auto" style="color: #e5a93c">
             R$ {{ "%.2f"|format(produto.preco) }}
           </p>
