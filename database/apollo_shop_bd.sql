@@ -40,11 +40,13 @@ CREATE TABLE itens_pedido (
 );
 
 INSERT INTO produtos (nome, categoria, preco, estoque, foto) VALUES
-('Guitarra Fender Stratocaster', 'Cordas', 5999.90, 5, 'fender_strato.jpg'),
-('Teclado Sintetizador Roland XPS-10', 'Teclados', 3499.00, 8, 'roland_xps10.jpg'),
-('Violão Acústico Taylor GS Mini', 'Cordas', 4200.00, 12, 'taylor_gs.jpg'),
+('Guitarra Fender Stratocaster', 'Cordas', 5999.90, 5, 'fender_strato.png'),
+('Teclado Sintetizador Roland XPS-10', 'Teclados', 3499.00, 8, 'roland_xps10.webp'),
+('Violão Acústico Taylor GS Mini', 'Cordas', 4200.00, 12, 'taylor_gs.webp'),
 ('Amplificador Marshall DSL40CR', 'Áudio', 2899.90, 6, 'marshall_dsl40.jpg'),
 ('Bateria Eletrónica Yamaha DTX402K', 'Percussão', 5100.00, 4, 'yamaha_dtx.jpg'),
-('Interface de Áudio Focusrite Scarlett 2i2', 'Áudio', 1299.00, 25, 'focusrite_2i2.jpg'),
+('Interface de Áudio Focusrite Scarlett 2i2', 'Áudio', 1299.00, 25, 'focusrite_2i2.webp'),
 ('Microfone Dinâmico Shure SM58', 'Áudio', 899.00, 40, 'shure_sm58.jpg'),
-('Controlador MIDI Novation Launchkey', 'Teclados', 1599.90, 15, 'novation_launch.jpg');
+('Controlador MIDI Novation Launchkey', 'Teclados', 1599.90, 15, 'novation_launch.png'),
+('Baixo Ibanez GSR200', 'Cordas', 2199.90, 7, 'ibanez_gsr200.webp'),
+('Cajón FSA Strike SK400', 'Percussão', 749.90, 10, 'cajon_fsa.webp');
